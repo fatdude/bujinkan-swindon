@@ -1,0 +1,90 @@
+// body {
+//   background-color: #fbc547;
+//   color: #333;
+//   font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
+//     "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
+//     "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+//     "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+//   padding: 18vh 1rem;
+//   text-align: center;
+// }
+//
+// a {
+//   color: rgba(#000, 0.7);
+//
+//   &:focus,
+//   &:hover {
+//     color: rgba(#000, 0.6);
+//   }
+// }
+//
+// .middleman-logo {
+//   margin-bottom: 1rem;
+//   width: 10rem;
+// }
+
+@import './variables';
+@import 'bootstrap';
+@import './bootswatch';
+
+
+.background-lg {
+  // background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  height: 400px;
+  width: 100%;
+}
+
+.content {
+  padding: 20px 0;
+}
+
+.quotes {
+  padding: 10px 0;
+  background: #424242;
+  color: #fff;
+
+  blockquote {
+    margin: 0;
+  }
+}
+
+footer.last {
+  background-color: #333;
+  padding: 20px 0;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+
+@include media-breakpoint-down(sm) {
+
+  footer {
+
+    .card {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+
+  footer {
+
+    blockquote {
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    img.logo-lg {
+      display: block;
+      margin: 10px 0;
+      float: right;
+    }
+  }
+}

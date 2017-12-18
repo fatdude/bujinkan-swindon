@@ -1,0 +1,61 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
+    / Use the title from a page's frontmatter if it has one
+    %title= current_page.data.title || "Middleman"
+    = stylesheet_link_tag "site"
+    = javascript_include_tag "site"
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container
+        %a.navbar-brand{ href: '/' }
+          = image_tag 'bujinkan-logo-small.png'
+          Bujin martial arts
+    - if current_page.data.background
+      .background-lg{ style: "background-image: url(#{current_page.data.background});" }
+
+    .content
+      .container
+        = yield
+
+    .quotes
+      .container
+        %blockquote
+          %p.lead Don’t think that any one technique is the end. There is no end. There is no perfect technique. Just when you think you’ve got them, you’re dead because you didn’t.
+          %footer.blockquote-footer Soke Hatsumi Masaakii
+
+    %footer.last
+      .container
+        .row.align-items-center
+          .col-lg-6
+            .card-deck
+              .card.text-white.bg-dark
+                .card-header Find us
+                = image_tag 'map.jpg', class: 'card-img-top'
+                .card-body
+                  %ul.list-unstyled
+                    %li Unit 69 BSS House
+                    %li Cheney Manor Industrial Estate
+                    %li Swindon SN2 2PJ
+              .card.text-white.bg-dark
+                .card-header Class times
+                .card-body
+                  %dl.row
+                    %dt.col-sm-6 Monday
+                    %dd.col-sm-6 7pm to 8pm
+                    %dt.col-sm-6 Tuesday
+                    %dd.col-sm-6 7pm to 8pm
+                    %dt.col-sm-6 Wednesday
+                    %dd.col-sm-6 7pm to 8pm
+                    %dt.col-sm-6 Thursday
+                    %dd.col-sm-6 7pm to 8pm
+
+          .col-lg-3
+            %blockquote
+              %p.lead Train in the art of ninjutsu and learn to defend yourself with ease
+
+          .col-lg-3
+            = image_tag 'bujinkan-logo.png', class: 'logo-lg'
