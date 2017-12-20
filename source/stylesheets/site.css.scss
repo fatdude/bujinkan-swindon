@@ -23,10 +23,20 @@
 //   width: 10rem;
 // }
 
+$body-background: #333;
+$content-background: #fff;
+
 @import './variables';
 @import 'bootstrap';
 @import './bootswatch';
 
+body {
+  background-color: $body-background;
+}
+
+nav.main {
+  background-color: $content-background;
+}
 
 .background-lg {
   // background-image: url('../images/background.jpg');
@@ -40,12 +50,13 @@
 
 .content {
   padding: 20px 0;
+  background-color: $content-background;
 }
 
 .quotes {
   padding: 10px 0;
-  background: #424242;
-  color: #fff;
+  background: lighten($body-background, 5%);
+  // color: #fff;
 
   blockquote {
     margin: 0;

@@ -9,11 +9,21 @@
     = stylesheet_link_tag "site"
     = javascript_include_tag "site"
   %body
-    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    %nav.navbar.navbar-expand-lg.navbar-light.main
       .container
         %a.navbar-brand{ href: '/' }
-          = image_tag 'bujinkan-logo-small.png'
+          = image_tag 'bujinkan-logo-small-dark.png'
           Bujin martial arts
+        %ul.navbar-nav.mr-auto
+          %li.nav-item
+            %a.nav-link{ href: '/', class: nav_is_active?('/') } Home
+          %li.nav-item
+            %a.nav-link{ href: '/ninjutsu', class: nav_is_active?('/ninjutsu/') } Ninjutsu
+          %li.nav-item
+            %a.nav-link{ href: '/instructors', class: nav_is_active?('/instructors/') } Instructors
+          %li.nav-item
+            %a.nav-link{ href: '/dojo', class: nav_is_active?('/dojo/') } Dojo
+
     - if current_page.data.background
       .background-lg{ style: "background-image: url(#{current_page.data.background});" }
 
@@ -21,18 +31,34 @@
       .container
         = yield
 
-    .quotes
-      .container
-        %blockquote
-          %p.lead Don’t think that any one technique is the end. There is no end. There is no perfect technique. Just when you think you’ve got them, you’re dead because you didn’t.
-          %footer.blockquote-footer Soke Hatsumi Masaakii
+    - if current_page.data.quote
+      .quotes
+        .container
+          %blockquote.text-light
+            %p.lead= current_page.data.quote.text
+            %footer.blockquote-footer= current_page.data.quote.by
 
     %footer.last
       .container
         .row.align-items-center
-          .col-lg-6
+          .col-lg-9
             .card-deck
-              .card.text-white.bg-dark
+              .card
+                .card-header Contact us
+                .card-body
+
+                  :markdown
+
+                    To talk to one of the team or to ask about the free introductory lesson you can:
+
+                    Call us on 07727 653852
+
+                    Or
+
+                    Email us at <mailto:bujinmartialarts@aol.com>
+
+
+              .card
                 .card-header Find us
                 = image_tag 'map.jpg', class: 'card-img-top'
                 .card-body
@@ -40,7 +66,7 @@
                     %li Unit 69 BSS House
                     %li Cheney Manor Industrial Estate
                     %li Swindon SN2 2PJ
-              .card.text-white.bg-dark
+              .card
                 .card-header Class times
                 .card-body
                   %dl.row
@@ -52,10 +78,6 @@
                     %dd.col-sm-6 7pm to 8pm
                     %dt.col-sm-6 Thursday
                     %dd.col-sm-6 7pm to 8pm
-
-          .col-lg-3
-            %blockquote
-              %p.lead Train in the art of ninjutsu and learn to defend yourself with ease
 
           .col-lg-3
             = image_tag 'bujinkan-logo.png', class: 'logo-lg'
