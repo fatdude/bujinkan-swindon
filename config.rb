@@ -49,5 +49,6 @@ end
 
 activate :livereload
 activate :directory_indexes
+activate :sprockets
 
 set :haml, { format: :html5 }

@@ -14,15 +14,19 @@
         %a.navbar-brand{ href: '/' }
           = image_tag 'bujinkan-logo-small-dark.png'
           Bujin martial arts
-        %ul.navbar-nav.mr-auto
-          %li.nav-item
-            %a.nav-link{ href: '/', class: nav_is_active?('/') } Home
-          %li.nav-item
-            %a.nav-link{ href: '/ninjutsu', class: nav_is_active?('/ninjutsu/') } Ninjutsu
-          %li.nav-item
-            %a.nav-link{ href: '/instructors', class: nav_is_active?('/instructors/') } Instructors
-          %li.nav-item
-            %a.nav-link{ href: '/dojo', class: nav_is_active?('/dojo/') } Dojo
+        %button.navbar-toggler{ data: { toggle: 'collapse', target: '#main-nav' } }
+          %span.navbar-toggler-icon
+
+        #main-nav.collapse.navbar-collapse
+          %ul.navbar-nav
+            %li.nav-item
+              %a.nav-link{ href: '/', class: nav_is_active?('/') } Home
+            %li.nav-item
+              %a.nav-link{ href: '/ninjutsu', class: nav_is_active?('/ninjutsu/') } Ninjutsu
+            %li.nav-item
+              %a.nav-link{ href: '/instructors', class: nav_is_active?('/instructors/') } Instructors
+            %li.nav-item
+              %a.nav-link{ href: '/dojo', class: nav_is_active?('/dojo/') } Dojo
 
     - if current_page.data.background
       .background-lg{ style: "background-image: url(#{current_page.data.background});" }

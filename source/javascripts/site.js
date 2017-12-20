@@ -1,1 +1,3 @@
-// This is where it all goes :)
+//= require ./jquery-3.2.1.min
+//= require ./popper
+//= require bootstrap

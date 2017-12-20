@@ -25,6 +25,7 @@
 
 $body-background: #333;
 $content-background: #fff;
+$panel-gutter: 15px;
 
 @import './variables';
 @import 'bootstrap';
@@ -72,15 +73,31 @@ footer.last {
   }
 }
 
+.navbar-collapse {
+
+  &.collapse, &.collapsing {
+
+    .navbar-nav .nav-item + .nav-item {
+      margin-left: 0;
+    }
+  }
+}
 
 @include media-breakpoint-down(sm) {
 
-  footer {
+  .card-deck {
 
-    .card {
-      margin-bottom: 10px;
+    .card + .card {
+      margin-top: $panel-gutter;
     }
   }
+
+  // footer {
+  //
+  //   .card {
+  //     margin-bottom: 10px;
+  //   }
+  // }
 }
 
 @include media-breakpoint-down(md) {
@@ -88,14 +105,13 @@ footer.last {
   footer {
 
     blockquote {
-      margin: 10px 0;
+      margin: $panel-gutter 0;
       text-align: center;
     }
 
     img.logo-lg {
       display: block;
-      margin: 10px 0;
-      float: right;
+      margin: $panel-gutter auto 0 auto;
     }
   }
 }
