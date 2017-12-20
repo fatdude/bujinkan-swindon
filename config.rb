@@ -36,7 +36,7 @@ helpers do
   def nav_is_active? url, active_class: 'active'
     current_page.url == url ? active_class : ''
   end
-    
+
 end
 
 # Build-specific configuration
@@ -48,5 +48,6 @@ end
 # end
 
 activate :livereload
+activate :directory_indexes
 
 set :haml, { format: :html5 }
