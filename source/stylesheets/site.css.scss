@@ -30,6 +30,7 @@ $panel-gutter: 15px;
 @import './variables';
 @import 'bootstrap';
 @import './bootswatch';
+@import './instructors';
 
 body {
   background-color: $body-background;
@@ -83,7 +84,19 @@ footer.last {
   }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(xs) {
+
+  .navbar.main {
+
+    a {
+      white-space: normal;
+      margin-right: 0;
+
+      img {
+        display: block;
+      }
+    }
+  }
 
   .card-deck {
 
