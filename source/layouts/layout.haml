@@ -40,7 +40,7 @@
             %li.nav-item
               %a.nav-link{ href: '#' }
                 %i.icon-insta
-                
+
     - if current_page.data.background
       .background-lg{ style: "background-image: url(#{current_page.data.background});" }
 
@@ -58,9 +58,15 @@
           %nav
             %ul.pagination.justify-content-center
               - if current_article.article_previous
-                %li.page-item= link_to "&#x25C0; #{current_article.article_previous.title}", current_article.article_previous, class: 'page-link'
+                %li.page-item
+                  = link_to current_article.article_previous, class: 'page-link' do
+                    %i.icon-caret-left
+                    = current_article.article_previous.title
               - if current_article.article_next
-                %li.page-item= link_to "#{current_article.article_next.title} &#x25BA;", current_article.article_next, class: 'page-link'
+                %li.page-item
+                  = link_to current_article.article_next, class: 'page-link' do
+                    = current_article.article_next.title
+                    %i.icon-caret-right
 
     - if current_page.data.quote
       .quotes

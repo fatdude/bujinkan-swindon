@@ -24,6 +24,12 @@ title: Blog
   %nav
     %ul.pagination.justify-content-center
       - if prev_page
-        %li.page-item= link_to '&#x25C0; Previous Page', prev_page, class: 'page-link'
+        %li.page-item
+          = link_to prev_page, class: 'page-link' do
+            %i.icon-caret-left
+            Previous page
       - if next_page
-        %li.page-item= link_to 'Next Page &#x25BA;', next_page, class: 'page-link'
+        %li.page-item
+          = link_to next_page, class: 'page-link' do
+            Next page
+            %i.icon-caret-right
