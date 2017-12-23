@@ -1,0 +1,40 @@
+body.blog {
+
+  .summary {
+    display: none;
+  }
+
+  &.blog_index {
+
+    .summary {
+      display: block;
+    }
+
+
+  }
+}
+
+.latest-articles {
+  padding: 15px 0;
+  background-color: lighten($body-background, 10%);
+}
+
+@include media-breakpoint-down(md) {
+
+  body.blog_index {
+    
+    .card-columns {
+      column-count: 2;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+
+  body.blog_index {
+
+    .card-columns {
+      column-count: 1;
+    }
+  }
+}

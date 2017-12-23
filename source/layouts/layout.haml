@@ -9,7 +9,7 @@
     = stylesheet_link_tag "site"
     = javascript_include_tag "site"
   %body{ class: page_classes }
-    %nav.navbar.navbar-expand-lg.navbar-light.main
+    %nav.navbar.navbar-expand-md.navbar-light.main
       .container
         %a.navbar-brand{ href: '/' }
           = image_tag 'bujinkan-logo-small-dark.png'
@@ -18,7 +18,7 @@
           %span.navbar-toggler-icon
 
         #main-nav.collapse.navbar-collapse
-          %ul.navbar-nav
+          %ul.navbar-nav.mr-auto
             %li.nav-item
               %a.nav-link{ href: '/', class: nav_is_active?('/') } Home
             %li.nav-item
@@ -27,13 +27,40 @@
               %a.nav-link{ href: '/instructors', class: nav_is_active?('/instructors/') } Instructors
             %li.nav-item
               %a.nav-link{ href: '/dojo', class: nav_is_active?('/dojo/') } Dojo
+            %li.nav-item
+              %a.nav-link{ href: '/blog', class: "#{nav_is_active?('/blog/') || is_blog_article? ? 'active' : nil}" } Blog
 
+          %ul.navbar-nav.justify-content-end.social
+            %li.nav-item
+              %a.nav-link{ href: '#' }
+                %i.icon-facebook
+            %li.nav-item
+              %a.nav-link{ href: '#' }
+                %i.icon-twitter
+            %li.nav-item
+              %a.nav-link{ href: '#' }
+                %i.icon-insta
+                
     - if current_page.data.background
       .background-lg{ style: "background-image: url(#{current_page.data.background});" }
 
     .content
       .container
+        - if current_page.data.heading
+          %h1
+            = current_page.data.heading
+            - if current_page.data.subheading
+              %small.text-muted= current_page.data.subheading
+
         = yield
+
+        - if is_blog_article?
+          %nav
+            %ul.pagination.justify-content-center
+              - if current_article.article_previous
+                %li.page-item= link_to "&#x25C0; #{current_article.article_previous.title}", current_article.article_previous, class: 'page-link'
+              - if current_article.article_next
+                %li.page-item= link_to "#{current_article.article_next.title} &#x25BA;", current_article.article_next, class: 'page-link'
 
     - if current_page.data.quote
       .quotes
@@ -41,6 +68,20 @@
           %blockquote.text-light
             %p.lead= current_page.data.quote.text
             %footer.blockquote-footer= current_page.data.quote.by
+
+    - if !is_blog_article? and blog.articles.any? and !nav_is_active?('/blog/')
+      .latest-articles
+        .container
+          - article = blog.articles.first
+          .card{ class: article.data.background ? 'bg-dark text-white' : nil }
+            = image_tag(article.data.background, class: 'card-img') if article.data.background
+            %div{ class: article.data.background ? 'card-img-overlay' : 'card-body' }
+              %h4.card-title= article.title
+              %h6.card-subtitle{ class: article.data.background ? 'text-white' : 'text-muted' }
+                %i.icon-calendar
+                = article.date.strftime('%b %e')
+              %p.card-text= article.data.summary
+              %p.card-text= link_to 'Read more', article, class: article.data.background ? 'text-muted' : nil
 
     %footer.last
       .container
@@ -70,6 +111,7 @@
                     %li Unit 69 BSS House
                     %li Cheney Manor Industrial Estate
                     %li Swindon SN2 2PJ
+
               .card
                 .card-header Class times
                 .card-body

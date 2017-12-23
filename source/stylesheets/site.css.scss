@@ -27,9 +27,13 @@ $body-background: #333;
 $content-background: #fff;
 $panel-gutter: 15px;
 
+$link-color: black;
+
 @import './variables';
 @import 'bootstrap';
 @import './bootswatch';
+@import './icons';
+@import './blog';
 @import './instructors';
 
 body {
@@ -38,6 +42,13 @@ body {
 
 nav.main {
   background-color: $content-background;
+}
+
+.navbar-nav.social {
+
+  i {
+    font-size: 200%;
+  }
 }
 
 .background-lg {
@@ -82,6 +93,10 @@ footer.last {
       margin-left: 0;
     }
   }
+}
+
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 @include media-breakpoint-down(xs) {
