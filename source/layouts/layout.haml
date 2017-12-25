@@ -5,7 +5,7 @@
     %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
     / Use the title from a page's frontmatter if it has one
-    %title= current_page.data.title || "Middleman"
+    %title= current_page.data.title || 'Bujin Martial Arts'
     = stylesheet_link_tag "site"
     = javascript_include_tag "site"
   %body{ class: page_classes }
@@ -30,19 +30,8 @@
             %li.nav-item
               %a.nav-link{ href: '/blog', class: "#{nav_is_active?('/blog/') || is_blog_article? ? 'active' : nil}" } Blog
 
-          %ul.navbar-nav.justify-content-end.social
-            %li.nav-item
-              %a.nav-link{ href: '#' }
-                %i.icon-facebook
-            %li.nav-item
-              %a.nav-link{ href: '#' }
-                %i.icon-twitter
-            %li.nav-item
-              %a.nav-link{ href: '#' }
-                %i.icon-insta
-
     - if current_page.data.background
-      .background-lg{ style: "background-image: url(#{current_page.data.background});" }
+      .background-lg{ style: "background-image: url('#{thumb_url(current_page.data.background, 'x500')}');" }
 
     .content
       .container
@@ -76,12 +65,13 @@
             %footer.blockquote-footer= current_page.data.quote.by
 
     - if !is_blog_article? and blog.articles.any? and !nav_is_active?('/blog/')
-      .latest-articles
+      - article = blog.articles.first
+      .latest-article{ style: "background-image: url('#{thumb_url(article.data.background, 'x500')}')", class: article.data.background ? 'with-background' : nil }
         .container
-          - article = blog.articles.first
-          .card{ class: article.data.background ? 'bg-dark text-white' : nil }
-            = image_tag(article.data.background, class: 'card-img') if article.data.background
-            %div{ class: article.data.background ? 'card-img-overlay' : 'card-body' }
+          .card.text-white
+            -# = image_tag(article.data.background, class: 'card-img') if article.data.background
+            -# %div{ class: article.data.background ? 'card-img-overlay' : 'card-body' }
+            .card-body
               %h4.card-title= article.title
               %h6.card-subtitle{ class: article.data.background ? 'text-white' : 'text-muted' }
                 %i.icon-calendar
@@ -108,6 +98,14 @@
 
                     Email us at <mailto:bujinmartialarts@aol.com>
 
+
+                  .social-links
+                    %a{ href: '#' }
+                      %i.icon-facebook
+                    %a{ href: '#' }
+                      %i.icon-twitter
+                    %a{ href: '#' }
+                      %i.icon-insta
 
               .card
                 .card-header Find us

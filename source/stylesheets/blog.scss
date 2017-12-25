@@ -1,28 +1,27 @@
-body.blog {
-
-  .summary {
-    display: none;
-  }
-
-  &.blog_index {
-
-    .summary {
-      display: block;
-    }
-
-
-  }
-}
-
-.latest-articles {
+.latest-article {
   padding: 15px 0;
   background-color: lighten($body-background, 10%);
+
+  .card {
+    background-color: transparent;
+    border: none;
+  }
+
+  &.with-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .card-body {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
 }
 
 @include media-breakpoint-down(md) {
 
   body.blog_index {
-    
+
     .card-columns {
       column-count: 2;
     }

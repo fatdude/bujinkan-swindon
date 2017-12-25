@@ -9,7 +9,7 @@ title: Blog
 .card-columns
   - page_articles.each_with_index do |article, i|
     .card
-      = link_to image_tag(article.data.background, class: 'card-img-top'), article
+      = link_to thumb_tag(article.data.background, '500x250#', class: 'card-img-top'), article
       .card-body
         %h4.card-title= article.title
         %p.card-text

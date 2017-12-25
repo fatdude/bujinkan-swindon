@@ -44,7 +44,7 @@ nav.main {
   background-color: $content-background;
 }
 
-.navbar-nav.social {
+.social-links {
 
   i {
     font-size: 200%;
@@ -129,6 +129,10 @@ footer.last {
 }
 
 @include media-breakpoint-down(md) {
+
+  .background-lg {
+    height: 200px;
+  }
 
   footer {
 
