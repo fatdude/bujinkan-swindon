@@ -1,5 +1,6 @@
-PATH
-  remote: ../middleman-dragonfly_thumbnailer
+GIT
+  remote: git://github.com/fatdude/middleman-dragonfly_thumbnailer.git
+  revision: 4f6485ec73c2b9fb7152cbc37890fb79b036850a
   specs:
     middleman-dragonfly_thumbnailer (1.0.2)
       dragonfly
