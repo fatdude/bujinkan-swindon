@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/fatdude/middleman-dragonfly.git
-  revision: 9e1d006048869161ada284a1340f94c52b472cff
+  revision: 06c4d4ac2065fb2ba54db91630dd24789e2f1de4
   specs:
     middleman-dragonfly (0.0.1)
       dragonfly
