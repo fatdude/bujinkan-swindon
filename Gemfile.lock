@@ -1,10 +1,10 @@
 GIT
-  remote: git://github.com/fatdude/middleman-dragonfly_thumbnailer.git
-  revision: 4f6485ec73c2b9fb7152cbc37890fb79b036850a
+  remote: git://github.com/fatdude/middleman-dragonfly.git
+  revision: 867a7237992f9db212246b6d6d3810d4bdf73c08
   specs:
-    middleman-dragonfly_thumbnailer (1.0.2)
+    middleman-dragonfly (0.0.1)
       dragonfly
-      middleman-core
+      middleman-core (>= 4.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -145,7 +145,7 @@ DEPENDENCIES
   middleman (~> 4.2)
   middleman-autoprefixer (~> 2.7)
   middleman-blog
-  middleman-dragonfly_thumbnailer!
+  middleman-dragonfly!
   middleman-livereload
   middleman-sprockets
   tzinfo-data
