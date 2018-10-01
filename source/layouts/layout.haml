@@ -4,8 +4,9 @@
     %meta{:charset => "utf-8"}
     %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
-    / Use the title from a page's frontmatter if it has one
-    %title= current_page.data.title || 'Bujin Martial Arts'
+    %meta{ name: "keywords", content: "martial arts, kung fu, ninjutsu, self defence, fighting, mma, weapon defence, weaponary, karate, jujitsu, budo, bujinkan, , karate, boxing, self defence, kick boxing, ninjutsu, training, fitness, mma, wrestling, tai chi, bujikan, swindon, martial arts, bruce lee, defend, weapons, street fight, best defence, locks, throws, rolls, movement, ninja, technique, footwork, the art of distance, ground fighting, mental, confidence, jujitsu, budo, nine schools, black belt, belt, japanese, japan, flexibility, reduce stress, goal setting, learn discipline, adults, children, kids, bullying, anti bullying, stop bullies, class times, wiltshire, calne, sports, gallery, pics, videos, info, paul stubbs, , " }
+    %meta{ name:"description", content: "Swindon Ninjutsu Dojo" }
+    %title= current_page.data.title || 'Swindon Ninjutsu'
     = stylesheet_link_tag "site"
     = javascript_include_tag "site"
   %body{ class: page_classes }
@@ -22,13 +23,18 @@
             %li.nav-item
               %a.nav-link{ href: '/', class: nav_is_active?('/') } Home
             %li.nav-item
-              %a.nav-link{ href: '/ninjutsu', class: nav_is_active?('/ninjutsu/') } Ninjutsu
+              %a.nav-link{ href: '/what-is-ninjutsu', class: nav_is_active?('/what-is-ninjutsu/') } What is ninjutsu?
+            %li.nav-item
+              %a.nav-link{ href: '/why-ninjutsu', class: nav_is_active?('/why-ninjutsu/') } Why ninjutsu?
+            -# %li.nav-item
+            -#   %a.nav-link{ href: '/ninjutsu', class: nav_is_active?('/ninjutsu/') } Ninjutsu
             %li.nav-item
               %a.nav-link{ href: '/instructors', class: nav_is_active?('/instructors/') } Instructors
             %li.nav-item
               %a.nav-link{ href: '/dojo', class: nav_is_active?('/dojo/') } Dojo
-            %li.nav-item
-              %a.nav-link{ href: '/blog', class: "#{nav_is_active?('/blog/') || is_blog_article? ? 'active' : nil}" } Blog
+            - if blog.articles.any?
+              %li.nav-item
+                %a.nav-link{ href: '/blog', class: "#{nav_is_active?('/blog/') || is_blog_article? ? 'active' : nil}" } Blog
 
     - if current_page.data.background
       .background-lg{ style: "background-image: url('#{thumb_url(current_page.data.background, 'x500')}');" }
@@ -92,12 +98,7 @@
 
                     To talk to one of the team or to ask about the free introductory lesson you can:
 
-                    Call us on 07727 653852
-
-                    Or
-
-                    Email us at <mailto:bujinmartialarts@aol.com>
-
+                    Email us at <mailto:hello@ninjutsuswindon.co.uk>
 
                   .social-links
                     %a{ href: '#' }
