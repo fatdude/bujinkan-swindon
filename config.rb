@@ -47,7 +47,7 @@ end
 #   activate :minify_javascript
 # end
 
-activate :livereload
+# activate :livereload
 activate :directory_indexes
 activate :sprockets
 
