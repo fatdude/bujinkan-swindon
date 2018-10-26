@@ -66,6 +66,20 @@ nav.main {
 .content {
   padding: 20px 0;
   background-color: $content-background;
+
+  &.has-background {
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
+    padding-top: 400px;
+
+    .container {
+      background: #ffffffc4;
+      color: black;
+      padding: 30px;
+    }
+  }
 }
 
 .quotes {
@@ -101,6 +115,13 @@ footer.last {
   background: rgba(0, 0, 0, 0.6);
 }
 
+.carousel-inner .carousel-item .image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
 @include media-breakpoint-down(xs) {
 
   .navbar.main {
@@ -119,6 +140,17 @@ footer.last {
 
     .card + .card {
       margin-top: $panel-gutter;
+    }
+  }
+
+  .content {
+
+    &.has-background {
+      padding: 0;
+
+      .container {
+        padding: 15px;
+      }
     }
   }
 

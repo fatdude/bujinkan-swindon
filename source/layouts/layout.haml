@@ -35,11 +35,13 @@
             - if blog.articles.any?
               %li.nav-item
                 %a.nav-link{ href: '/blog', class: "#{nav_is_active?('/blog/') || is_blog_article? ? 'active' : nil}" } Blog
+            %li.nav-item
+              %a.nav-link{ href: '/gallery', class: nav_is_active?('/gallery/') } Gallery
 
-    - if current_page.data.background
-      .background-lg{ style: "background-image: url('#{thumb_url(current_page.data.background, 'x500')}');" }
+    -# - if current_page.data.background
+    -#   .background-lg{ style: "background-image: url(/images/#{current_page.data.background}); #{current_page.data.background_style}" }
 
-    .content
+    .content{ class: "#{current_page.data.background && 'has-background'}", style: "background-image: url(/images/#{current_page.data.background});" }
       .container
         - if current_page.data.heading
           %h1
@@ -72,7 +74,7 @@
 
     - if !is_blog_article? and blog.articles.any? and !nav_is_active?('/blog/')
       - article = blog.articles.first
-      .latest-article{ style: "background-image: url('#{thumb_url(article.data.background, 'x500')}')", class: article.data.background ? 'with-background' : nil }
+      .latest-article{ style: "background-image: url('/images/#{article.data.background}')", class: article.data.background ? 'with-background' : nil }
         .container
           .card.text-white
             -# = image_tag(article.data.background, class: 'card-img') if article.data.background
